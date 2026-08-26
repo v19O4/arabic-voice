@@ -4,98 +4,348 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>وَلَعَلَّكُمْ تَشْكُرُونَ</title>
+    <title>وَلَعَلَّكُمْ تَشْكُرُونَ | حسام فودة</title>
 
     <script src="https://js.puter.com/v2/"></script>
 
+    <!-- الخطوط -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Reem+Kufi:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
-        body {
-            font-family: Arial;
-            background: #f5f1e8;
-            padding: 20px;
+        * {
+            box-sizing: border-box;
         }
 
-        .box {
-            max-width: 700px;
-            margin: auto;
-            background: white;
-            padding: 20px;
-            border-radius: 15px;
+        :root {
+            --bg: #0b1714;
+            --card: #10211c;
+            --card-light: #142a23;
+            --gold: #d8b56a;
+            --gold-light: #f1d894;
+            --text: #f7f3e8;
+            --muted: #aebcb5;
+            --border: rgba(216,181,106,.20);
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: "Cairo", Arial, sans-serif;
+            color: var(--text);
+            background:
+                radial-gradient(circle at 20% 10%, rgba(216,181,106,.12), transparent 30%),
+                radial-gradient(circle at 90% 90%, rgba(33,104,78,.25), transparent 35%),
+                var(--bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 25px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 820px;
+        }
+
+        .card {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(145deg, rgba(20,42,35,.97), rgba(8,22,18,.98));
+            border: 1px solid var(--border);
+            border-radius: 28px;
+            padding: 38px;
+            box-shadow:
+                0 25px 80px rgba(0,0,0,.45),
+                inset 0 1px rgba(255,255,255,.04);
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            background: rgba(216,181,106,.06);
+            top: -130px;
+            left: -100px;
+        }
+
+        .header {
+            position: relative;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .ornament {
+            color: var(--gold);
+            font-size: 22px;
+            letter-spacing: 8px;
+            margin-bottom: 12px;
+        }
+
+        h1 {
+            margin: 0;
+            color: var(--gold-light);
+            font-family: "Reem Kufi", sans-serif;
+            font-size: clamp(30px, 6vw, 52px);
+            font-weight: 600;
+            line-height: 1.5;
+            text-shadow: 0 4px 25px rgba(216,181,106,.15);
+        }
+
+        .subtitle {
+            margin-top: 10px;
+            color: var(--muted);
+            font-size: 15px;
+        }
+
+        .label {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            color: var(--gold-light);
+            font-weight: 600;
         }
 
         textarea {
             width: 100%;
-            height: 220px;
-            box-sizing: border-box;
-            padding: 15px;
+            min-height: 230px;
+            resize: vertical;
+            border: 1px solid rgba(216,181,106,.18);
+            border-radius: 18px;
+            padding: 18px;
+            background: rgba(4,14,11,.65);
+            color: var(--text);
+            font-family: "Cairo", sans-serif;
             font-size: 18px;
-            line-height: 1.8;
+            line-height: 2;
+            outline: none;
+            transition: .25s;
+        }
+
+        textarea::placeholder {
+            color: #71817a;
+        }
+
+        textarea:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 0 4px rgba(216,181,106,.08);
+        }
+
+        .counter {
+            text-align: left;
+            margin-top: 7px;
+            color: #74837d;
+            font-size: 12px;
         }
 
         button {
             width: 100%;
-            padding: 15px;
-            margin-top: 15px;
-            background: #654321;
-            color: white;
             border: 0;
-            border-radius: 10px;
+            border-radius: 16px;
+            padding: 16px;
+            margin-top: 18px;
+            cursor: pointer;
+            font-family: "Cairo", sans-serif;
             font-size: 18px;
+            font-weight: 700;
+            color: #172019;
+            background: linear-gradient(135deg, var(--gold-light), var(--gold));
+            box-shadow: 0 10px 30px rgba(216,181,106,.15);
+            transition: transform .2s, box-shadow .2s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px rgba(216,181,106,.25);
+        }
+
+        button:active {
+            transform: scale(.99);
+        }
+
+        button:disabled {
+            opacity: .65;
+            cursor: wait;
+            transform: none;
         }
 
         #status {
-            margin-top: 15px;
+            min-height: 25px;
+            margin-top: 16px;
             text-align: center;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .player-box {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 18px;
+            background: rgba(0,0,0,.20);
+            border: 1px solid rgba(216,181,106,.10);
         }
 
         audio {
             width: 100%;
-            margin-top: 20px;
+        }
+
+        .footer {
+            margin-top: 32px;
+            padding-top: 22px;
+            border-top: 1px solid rgba(216,181,106,.12);
+            text-align: center;
+        }
+
+        .signature-label {
+            color: #7f9189;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+
+        .signature {
+            font-family: "Reem Kufi", sans-serif;
+            color: var(--gold-light);
+            font-size: 27px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 15px rgba(216,181,106,.18);
+        }
+
+        .copyright {
+            margin-top: 5px;
+            color: #687972;
+            font-size: 11px;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 12px;
+            }
+
+            .card {
+                padding: 25px 18px;
+                border-radius: 22px;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            textarea {
+                min-height: 200px;
+                font-size: 16px;
+            }
+
+            .signature {
+                font-size: 24px;
+            }
         }
     </style>
 </head>
 
 <body>
 
-<div class="box">
+<div class="container">
 
-    <h1>🎙️ وَلَعَلَّكُمْ تَشْكُرُونَ</h1>
+    <main class="card">
 
-    <textarea id="text">السلام عليكم ورحمة الله وبركاته. هذا اختبار لتحويل النص العربي إلى صوت.</textarea>
+        <header class="header">
+            <div class="ornament">✦ ───── ✦</div>
 
-    <button id="convert">
-        🔊 تحويل إلى صوت
-    </button>
+            <h1>وَلَعَلَّكُمْ تَشْكُرُونَ</h1>
 
-    <div id="status"></div>
+            <div class="subtitle">
+                حوّل النص العربي إلى صوت بكل بساطة
+            </div>
+        </header>
 
-    <audio id="player" controls></audio>
+        <section>
+
+            <div class="label">
+                <span>📝 النص</span>
+                <span>العربية</span>
+            </div>
+
+            <textarea id="text"
+                maxlength="2999"
+                placeholder="اكتب النص الذي تريد تحويله إلى صوت...">السلام عليكم ورحمة الله وبركاته. هذا اختبار لتحويل النص العربي إلى صوت.</textarea>
+
+            <div class="counter">
+                <span id="counter">0</span> / 3000
+            </div>
+
+            <button id="convert">
+                🔊 تحويل النص إلى صوت
+            </button>
+
+            <div id="status"></div>
+
+            <div class="player-box">
+                <audio id="player" controls></audio>
+            </div>
+
+        </section>
+
+        <footer class="footer">
+
+            <div class="signature-label">
+                تصميم وتطوير
+            </div>
+
+            <div class="signature">
+                حسام فودة
+            </div>
+
+            <div class="copyright">
+                © 2026 جميع الحقوق محفوظة
+            </div>
+
+        </footer>
+
+    </main>
 
 </div>
 
 <script>
 
-document.getElementById("convert").onclick = async function () {
+const text = document.getElementById("text");
+const counter = document.getElementById("counter");
+const convert = document.getElementById("convert");
+const status = document.getElementById("status");
+const player = document.getElementById("player");
 
-    const text = document.getElementById("text").value.trim();
-    const status = document.getElementById("status");
-    const player = document.getElementById("player");
+function updateCounter() {
+    counter.textContent = text.value.length;
+}
 
-    if (!text) {
-        status.textContent = "اكتب نصًا أولًا";
+text.addEventListener("input", updateCounter);
+updateCounter();
+
+convert.onclick = async function () {
+
+    const value = text.value.trim();
+
+    if (!value) {
+        status.textContent = "⚠️ اكتب نصًا أولًا";
         return;
     }
 
-    if (text.length >= 3000) {
-        status.textContent = "النص طويل جدًا. جرّب نصًا أقصر.";
+    if (value.length >= 3000) {
+        status.textContent = "⚠️ النص طويل جدًا. جرّب نصًا أقصر.";
         return;
     }
 
-    status.textContent = "⏳ جارٍ إنشاء الصوت...";
+    convert.disabled = true;
+    convert.textContent = "⏳ جارٍ إنشاء الصوت...";
+    status.textContent = "جاري تحويل النص إلى صوت...";
 
     try {
 
-        const audio = await puter.ai.txt2speech(text, {
+        const audio = await puter.ai.txt2speech(value, {
             provider: "elevenlabs",
             model: "eleven_multilingual_v2",
             voice: "cCYjmrGZaI86GUJ7F2Nn"
@@ -103,7 +353,9 @@ document.getElementById("convert").onclick = async function () {
 
         player.src = audio.src;
 
-        status.textContent = "✅ تم إنشاء الصوت. اضغط تشغيل.";
+        status.textContent = "✅ تم إنشاء الصوت بنجاح. اضغط تشغيل.";
+
+        player.play().catch(() => {});
 
         console.log("Audio:", audio);
 
@@ -112,8 +364,13 @@ document.getElementById("convert").onclick = async function () {
         console.error("ERROR:", error);
 
         status.textContent =
-            "❌ الخطأ: " +
+            "❌ حدث خطأ: " +
             (error.message || String(error));
+
+    } finally {
+
+        convert.disabled = false;
+        convert.textContent = "🔊 تحويل النص إلى صوت";
 
     }
 };
@@ -121,4 +378,4 @@ document.getElementById("convert").onclick = async function () {
 </script>
 
 </body>
-</html>
+    </html>
