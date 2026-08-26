@@ -1,818 +1,1814 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>وَلَعَلَّكُمْ تَشْكُرُونَ | حسام فودة</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Puter -->
-    <script src="https://js.puter.com/v2/"></script>
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<title>وَلَعَلَّكُمْ تَشْكُرُونَ | حسام فودة</title>
+<meta name="description" content="وَلَعَلَّكُمْ تَشْكُرُونَ - أداة احترافية لتحويل النص العربي إلى صوت.">
 
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Reem+Kufi:wght@400;500;600;700&display=swap"
-          rel="stylesheet">
+<script src="https://js.puter.com/v2/"></script>
 
-    <style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-        /* =========================
-           RESET
-        ========================= */
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Noto+Kufi+Arabic:wght@400;500;600;700;800&family=Reem+Kufi:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+<style>
+* {
+    box-sizing: border-box;
+}
 
-        html {
-            min-height: 100%;
-            background: #06130f;
-        }
+:root {
+    --bg: #06120f;
+    --bg2: #0b1d17;
+    --card: #0d211a;
+    --card2: #112a21;
 
-        body {
-            min-height: 100vh;
-            font-family: "Cairo", Arial, sans-serif;
-            color: #f8f3e6;
+    --gold: #d8b56a;
+    --gold-light: #f4dda0;
+    --gold-dark: #a77c32;
 
-            background:
-                radial-gradient(
-                    circle at 15% 10%,
-                    rgba(218, 181, 101, 0.12),
-                    transparent 28%
-                ),
-                radial-gradient(
-                    circle at 90% 80%,
-                    rgba(13, 91, 64, 0.28),
-                    transparent 35%
-                ),
-                linear-gradient(
-                    135deg,
-                    #071612 0%,
-                    #0a1d17 45%,
-                    #04110d 100%
-                );
+    --text: #faf7ed;
+    --muted: #aebbb5;
+    --muted-dark: #71827b;
 
-            background-attachment: fixed;
+    --border: rgba(216,181,106,.20);
+    --border-light: rgba(255,255,255,.07);
 
-            padding: 30px 15px;
+    --success: #78d6a0;
+    --danger: #e78383;
 
-            display: block;
-        }
+    --shadow: 0 30px 90px rgba(0,0,0,.48);
+}
 
+body.light {
+    --bg: #eef3ef;
+    --bg2: #dfe9e2;
+    --card: #ffffff;
+    --card2: #f4f8f5;
 
-        /* =========================
-           زخارف الخلفية
-        ========================= */
+    --text: #18251f;
+    --muted: #66766f;
+    --muted-dark: #87958f;
 
-        body::before {
-            content: "";
-            position: fixed;
-            inset: 0;
+    --border: rgba(150,112,43,.23);
+    --border-light: rgba(0,0,0,.08);
 
-            pointer-events: none;
+    background:
+        radial-gradient(circle at 10% 10%, rgba(216,181,106,.20), transparent 30%),
+        radial-gradient(circle at 90% 90%, rgba(33,104,78,.13), transparent 35%),
+        linear-gradient(145deg,var(--bg),var(--bg2));
+}
 
-            opacity: 0.25;
+html {
+    scroll-behavior: smooth;
+}
 
-            background-image:
-                linear-gradient(
-                    135deg,
-                    rgba(218,181,101,0.035) 25%,
-                    transparent 25%
-                ),
-                linear-gradient(
-                    315deg,
-                    rgba(218,181,101,0.025) 25%,
-                    transparent 25%
-                );
+body {
+    margin: 0;
+    min-height: 100vh;
 
-            background-size: 80px 80px;
+    font-family: "Cairo", Arial, sans-serif;
 
-            z-index: 0;
-        }
+    color: var(--text);
 
+    background:
+        radial-gradient(circle at 10% 10%, rgba(216,181,106,.12), transparent 28%),
+        radial-gradient(circle at 90% 85%, rgba(22,111,79,.20), transparent 34%),
+        linear-gradient(145deg,var(--bg),var(--bg2));
 
-        /* =========================
-           الحاوية
-        ========================= */
+    padding: 25px 14px 50px;
 
-        .container {
-            width: 100%;
-            max-width: 850px;
+    transition:
+        background .4s ease,
+        color .4s ease;
+}
 
-            margin: 0 auto;
+/* خلفية زخرفية */
 
-            position: relative;
-            z-index: 1;
-        }
+body::before {
+    content: "";
+    position: fixed;
 
+    width: 450px;
+    height: 450px;
 
-        /* =========================
-           البطاقة
-        ========================= */
+    top: -230px;
+    left: -180px;
 
-        .card {
+    border-radius: 50%;
 
-            width: 100%;
+    border: 1px solid rgba(216,181,106,.10);
 
-            position: relative;
-            overflow: hidden;
+    box-shadow:
+        0 0 0 35px rgba(216,181,106,.025),
+        0 0 0 70px rgba(216,181,106,.018);
 
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(18, 48, 38, 0.97),
-                    rgba(5, 22, 16, 0.99)
-                );
+    pointer-events: none;
+    z-index: -1;
+}
 
-            border: 1px solid rgba(218,181,101,0.25);
+body::after {
+    content: "";
+    position: fixed;
 
-            border-radius: 30px;
+    width: 500px;
+    height: 500px;
 
-            padding: 40px;
+    bottom: -300px;
+    right: -230px;
 
-            box-shadow:
-                0 30px 90px rgba(0,0,0,0.55),
-                inset 0 1px 0 rgba(255,255,255,0.04);
+    border: 1px solid rgba(216,181,106,.08);
 
-        }
+    transform: rotate(45deg);
 
+    pointer-events: none;
+    z-index: -1;
+}
 
-        /* اللمعة الذهبية */
+/* الحاوية */
 
-        .card::before {
+.container {
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+}
 
-            content: "";
+/* البطاقة الرئيسية */
 
-            position: absolute;
+.card {
+    position: relative;
+    overflow: hidden;
 
-            width: 320px;
-            height: 320px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(17,42,33,.98),
+            rgba(7,22,17,.99)
+        );
 
-            top: -180px;
-            left: -130px;
+    border: 1px solid var(--border);
 
-            border-radius: 50%;
+    border-radius: 32px;
 
-            background:
-                radial-gradient(
-                    circle,
-                    rgba(218,181,101,0.13),
-                    transparent 70%
-                );
+    padding: 42px;
 
-            pointer-events: none;
-        }
+    box-shadow:
+        var(--shadow),
+        inset 0 1px rgba(255,255,255,.04);
 
+    backdrop-filter: blur(18px);
+}
 
-        /* =========================
-           الرأس
-        ========================= */
+body.light .card {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.98),
+            rgba(244,248,245,.98)
+        );
+}
 
-        .header {
+.card::before {
+    content: "";
 
-            position: relative;
+    position: absolute;
 
-            text-align: center;
+    width: 340px;
+    height: 340px;
 
-            margin-bottom: 35px;
-        }
+    top: -190px;
+    left: -120px;
 
+    border-radius: 50%;
 
-        .ornament {
+    background:
+        radial-gradient(
+            circle,
+            rgba(216,181,106,.13),
+            transparent 68%
+        );
 
-            color: #d8b565;
+    pointer-events: none;
+}
 
-            font-size: 20px;
+.card::after {
+    content: "";
 
-            letter-spacing: 7px;
+    position: absolute;
 
-            margin-bottom: 14px;
+    width: 250px;
+    height: 250px;
 
-            opacity: 0.9;
-        }
+    right: -150px;
+    bottom: -160px;
 
+    border-radius: 50%;
 
-        /* الاسم الرئيسي */
+    border: 1px solid rgba(216,181,106,.08);
 
-        h1 {
+    pointer-events: none;
+}
 
-            font-family: "Reem Kufi", "Cairo", sans-serif;
+/* أزرار أعلى البطاقة */
 
-            color: #f1d58b;
+.top-actions {
+    position: absolute;
 
-            font-size: clamp(32px, 7vw, 56px);
+    top: 20px;
+    left: 20px;
 
-            font-weight: 600;
+    display: flex;
+    gap: 8px;
 
-            line-height: 1.5;
+    z-index: 10;
+}
 
-            letter-spacing: 0;
+.icon-btn {
+    width: 39px;
+    height: 39px;
 
-            text-shadow:
-                0 3px 20px rgba(218,181,101,0.18);
+    padding: 0;
+    margin: 0;
 
-        }
+    display: grid;
+    place-items: center;
 
+    border-radius: 50%;
 
-        .subtitle {
+    border: 1px solid var(--border);
 
-            margin-top: 12px;
+    background: rgba(216,181,106,.06);
 
-            color: #aebcb5;
+    color: var(--gold-light);
 
-            font-size: 15px;
+    font-size: 15px;
 
-            line-height: 1.8;
-        }
+    cursor: pointer;
 
+    box-shadow: none;
 
-        /* =========================
-           فاصل ذهبي
-        ========================= */
+    transition: .2s;
+}
 
-        .gold-line {
+.icon-btn:hover {
+    transform: translateY(-1px);
 
-            width: 100%;
+    background: rgba(216,181,106,.13);
 
-            height: 1px;
+    border-color: var(--gold);
+}
 
-            margin: 25px 0 30px;
+/* العنوان */
 
-            background:
-                linear-gradient(
-                    90deg,
-                    transparent,
-                    rgba(218,181,101,0.5),
-                    transparent
-                );
-        }
+.header {
+    position: relative;
 
+    text-align: center;
 
-        /* =========================
-           العنوان
-        ========================= */
+    margin-bottom: 35px;
+}
 
-        .label {
+.badge {
+    display: inline-flex;
 
-            display: flex;
+    align-items: center;
+    gap: 8px;
 
-            justify-content: space-between;
+    padding: 7px 15px;
 
-            align-items: center;
+    border: 1px solid var(--border);
 
-            margin-bottom: 11px;
+    border-radius: 999px;
 
-            color: #f0d58a;
+    background: rgba(216,181,106,.055);
 
-            font-size: 15px;
+    color: var(--gold-light);
 
-            font-weight: 700;
-        }
+    font-size: 12px;
 
+    margin-bottom: 18px;
+}
 
-        .language {
+.ornament {
+    color: var(--gold);
 
-            color: #80958c;
+    font-size: 20px;
 
-            font-size: 12px;
+    letter-spacing: 7px;
 
-            font-weight: 500;
-        }
+    margin-bottom: 10px;
+}
 
+h1 {
+    margin: 0;
 
-        /* =========================
-           مربع النص
-        ========================= */
+    font-family:
+        "Noto Kufi Arabic",
+        "Reem Kufi",
+        sans-serif;
 
-        textarea {
+    font-size: clamp(30px,7vw,58px);
 
-            display: block;
+    font-weight: 700;
 
-            width: 100%;
+    line-height: 1.7;
 
-            min-height: 240px;
+    color: var(--gold-light);
 
-            resize: vertical;
+    text-shadow:
+        0 4px 28px rgba(216,181,106,.20);
+}
 
-            border: 1px solid rgba(218,181,101,0.18);
+.subtitle {
+    margin-top: 8px;
 
-            border-radius: 20px;
+    color: var(--muted);
 
-            padding: 20px;
+    font-size: 15px;
+}
 
-            background:
-                rgba(2, 12, 9, 0.72);
+.divider {
+    width: 120px;
+    height: 2px;
 
-            color: #f8f3e6;
+    margin: 22px auto 0;
 
-            font-family: "Cairo", Arial, sans-serif;
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--gold),
+            transparent
+        );
+}
 
-            font-size: 18px;
+/* العناوين */
 
-            line-height: 2;
+.label {
+    display: flex;
 
-            outline: none;
+    align-items: center;
+    justify-content: space-between;
 
-            transition:
-                border-color 0.25s ease,
-                box-shadow 0.25s ease,
-                background 0.25s ease;
-        }
+    margin-bottom: 10px;
 
+    color: var(--gold-light);
 
-        textarea::placeholder {
+    font-weight: 700;
+}
 
-            color: #657870;
-        }
+.language {
+    color: var(--muted);
 
+    font-size: 12px;
 
-        textarea:focus {
+    font-weight: 500;
+}
 
-            border-color: rgba(218,181,101,0.65);
+/* محرر النص */
 
-            background:
-                rgba(2, 14, 10, 0.9);
+.editor {
+    position: relative;
+}
 
-            box-shadow:
-                0 0 0 4px rgba(218,181,101,0.07),
-                0 10px 35px rgba(0,0,0,0.18);
-        }
+textarea {
+    width: 100%;
 
+    min-height: 260px;
 
-        /* =========================
-           العداد
-        ========================= */
+    resize: vertical;
 
-        .counter {
+    border: 1px solid var(--border);
 
-            display: flex;
+    border-radius: 21px;
 
-            justify-content: flex-start;
+    padding: 20px 20px 55px;
 
-            margin-top: 8px;
+    background: rgba(1,10,7,.55);
 
-            color: #70827a;
+    color: var(--text);
 
-            font-size: 12px;
-        }
+    font-family: "Cairo", sans-serif;
 
+    font-size: 18px;
 
-        #counter {
+    line-height: 2;
 
-            color: #c6aa68;
+    outline: none;
 
-            margin-left: 3px;
-        }
+    transition: .25s;
+}
 
+body.light textarea {
+    background: #f8fbf9;
+}
 
-        /* =========================
-           الزر
-        ========================= */
+textarea::placeholder {
+    color: var(--muted-dark);
+}
 
-        .convert-button {
+textarea:focus {
+    border-color: var(--gold);
 
-            width: 100%;
+    box-shadow:
+        0 0 0 4px rgba(216,181,106,.08),
+        0 12px 35px rgba(0,0,0,.12);
+}
 
-            border: none;
+.editor-bottom {
+    position: absolute;
 
-            border-radius: 18px;
+    bottom: 12px;
 
-            padding: 17px 20px;
+    right: 14px;
+    left: 14px;
 
-            margin-top: 20px;
+    display: flex;
 
-            cursor: pointer;
+    align-items: center;
+    justify-content: space-between;
 
-            font-family: "Cairo", sans-serif;
+    gap: 10px;
 
-            font-size: 17px;
+    color: var(--muted-dark);
 
-            font-weight: 800;
+    font-size: 11px;
+}
 
-            color: #172019;
+.editor-tools {
+    display: flex;
+    gap: 6px;
+}
 
-            background:
-                linear-gradient(
-                    135deg,
-                    #f3dc99,
-                    #d8b565
-                );
+.small-btn {
+    width: auto;
 
-            box-shadow:
-                0 10px 30px rgba(218,181,101,0.13);
+    padding: 5px 9px;
 
-            transition:
-                transform 0.2s ease,
-                box-shadow 0.2s ease,
-                filter 0.2s ease;
-        }
+    margin: 0;
 
+    border-radius: 9px;
 
-        .convert-button:hover {
+    background: rgba(216,181,106,.07);
 
-            transform: translateY(-2px);
+    border: 1px solid var(--border);
 
-            filter: brightness(1.04);
+    color: var(--gold-light);
 
-            box-shadow:
-                0 15px 40px rgba(218,181,101,0.23);
-        }
+    font-family: "Cairo";
 
+    font-size: 11px;
 
-        .convert-button:active {
+    font-weight: 600;
 
-            transform: scale(0.99);
-        }
+    cursor: pointer;
 
+    box-shadow: none;
+}
 
-        .convert-button:disabled {
+.small-btn:hover {
+    transform: none;
 
-            opacity: 0.65;
+    box-shadow: none;
 
-            cursor: wait;
+    background: rgba(216,181,106,.13);
+}
 
-            transform: none;
-        }
+/* النصوص الجاهزة */
 
+.section-title {
+    margin-top: 27px;
+    margin-bottom: 12px;
 
-        /* =========================
-           الحالة
-        ========================= */
+    color: var(--gold-light);
 
-        #status {
+    font-size: 14px;
 
-            min-height: 27px;
+    font-weight: 700;
+}
 
-            margin-top: 16px;
+.presets {
+    display: grid;
 
-            text-align: center;
+    grid-template-columns:
+        repeat(4,1fr);
 
-            color: #aebcb5;
+    gap: 9px;
+}
 
-            font-size: 14px;
+.preset {
+    padding: 11px 7px;
 
-            line-height: 1.7;
-        }
+    border-radius: 13px;
 
+    border: 1px solid var(--border);
 
-        /* =========================
-           مشغل الصوت
-        ========================= */
+    background: rgba(216,181,106,.04);
 
-        .player-box {
+    color: var(--muted);
 
-            margin-top: 18px;
+    font-family: "Cairo";
 
-            padding: 17px;
+    font-size: 12px;
 
-            border-radius: 19px;
+    cursor: pointer;
 
-            background:
-                rgba(0,0,0,0.22);
+    transition: .2s;
+}
 
-            border:
-                1px solid rgba(218,181,101,0.10);
-        }
+.preset:hover {
+    color: var(--gold-light);
 
+    border-color: var(--gold);
 
-        .player-title {
+    background: rgba(216,181,106,.09);
 
-            color: #9aa9a2;
+    transform: translateY(-1px);
+}
 
-            font-size: 12px;
+/* الإعدادات */
 
-            margin-bottom: 10px;
+.settings {
+    display: grid;
 
-            text-align: center;
-        }
+    grid-template-columns: 1fr 1fr;
 
+    gap: 14px;
 
-        audio {
+    margin-top: 20px;
+}
 
-            width: 100%;
+.setting {
+    padding: 15px;
 
-            display: block;
-        }
+    border: 1px solid var(--border);
 
+    border-radius: 17px;
 
-        /* =========================
-           التوقيع
-        ========================= */
+    background: rgba(0,0,0,.10);
+}
 
-        .footer {
+.setting label {
+    display: flex;
 
-            margin-top: 38px;
+    align-items: center;
+    justify-content: space-between;
 
-            padding-top: 25px;
+    color: var(--muted);
 
-            border-top:
-                1px solid rgba(218,181,101,0.12);
+    font-size: 12px;
 
-            text-align: center;
-        }
+    margin-bottom: 8px;
+}
 
+.setting strong {
+    color: var(--gold-light);
+}
 
-        .signature-label {
+select {
+    width: 100%;
 
-            color: #71847b;
+    padding: 10px 12px;
 
-            font-size: 11px;
+    border-radius: 11px;
 
-            margin-bottom: 4px;
-        }
+    border: 1px solid var(--border);
 
+    background: var(--card2);
 
-        .signature {
+    color: var(--text);
 
-            font-family: "Reem Kufi", "Cairo", sans-serif;
+    font-family: "Cairo";
 
-            color: #f0d58a;
+    outline: none;
+}
 
-            font-size: 30px;
+input[type="range"] {
+    width: 100%;
 
-            font-weight: 600;
+    accent-color: var(--gold);
 
-            text-shadow:
-                0 3px 18px rgba(218,181,101,0.18);
+    cursor: pointer;
+}
 
-        }
+/* زر التحويل */
 
+#convert {
+    width: 100%;
 
-        .copyright {
+    padding: 17px;
 
-            margin-top: 6px;
+    margin-top: 22px;
 
-            color: #596b63;
+    border: 0;
 
-            font-size: 10px;
-        }
+    border-radius: 18px;
 
+    cursor: pointer;
 
-        /* =========================
-           Loading
-        ========================= */
+    font-family: "Cairo";
 
-        .loading {
+    font-size: 18px;
 
-            animation: pulse 1.5s infinite;
-        }
+    font-weight: 800;
 
+    color: #172019;
 
-        @keyframes pulse {
+    background:
+        linear-gradient(
+            135deg,
+            var(--gold-light),
+            var(--gold)
+        );
 
-            0%, 100% {
-                opacity: 1;
-            }
+    box-shadow:
+        0 13px 35px rgba(216,181,106,.18);
 
-            50% {
-                opacity: 0.55;
-            }
-        }
+    transition: .25s;
+}
 
+#convert:hover {
+    transform: translateY(-2px);
 
-        /* =========================
-           الجوال
-        ========================= */
+    box-shadow:
+        0 18px 45px rgba(216,181,106,.28);
+}
 
-        @media (max-width: 600px) {
+#convert:active {
+    transform: scale(.99);
+}
 
-            body {
-                padding: 12px;
-            }
+#convert:disabled {
+    opacity: .7;
 
-            .container {
-                width: 100%;
-            }
+    cursor: wait;
 
-            .card {
+    transform: none;
+}
 
-                padding: 26px 18px;
+/* الحالة */
 
-                border-radius: 23px;
-            }
+.status {
+    min-height: 25px;
 
-            .ornament {
-                font-size: 17px;
-                letter-spacing: 4px;
-            }
+    margin-top: 14px;
 
-            h1 {
-                font-size: 31px;
-            }
+    text-align: center;
 
-            .subtitle {
-                font-size: 13px;
-            }
+    color: var(--muted);
 
-            textarea {
+    font-size: 13px;
+}
 
-                min-height: 210px;
+/* مشغل الصوت */
 
-                padding: 16px;
+.audio-card {
+    display: none;
 
-                font-size: 16px;
+    margin-top: 20px;
 
-                line-height: 1.9;
-            }
+    padding: 20px;
 
-            .convert-button {
+    border-radius: 21px;
 
-                font-size: 16px;
+    border: 1px solid var(--border);
 
-                padding: 16px;
-            }
+    background:
+        linear-gradient(
+            145deg,
+            rgba(216,181,106,.06),
+            rgba(0,0,0,.13)
+        );
+}
 
-            .signature {
+.audio-card.show {
+    display: block;
 
-                font-size: 25px;
-            }
-        }
+    animation: fadeUp .4s ease;
+}
 
+.audio-title {
+    display: flex;
 
-        /* =========================
-           شاشات صغيرة جدًا
-        ========================= */
+    align-items: center;
 
-        @media (max-width: 360px) {
+    gap: 9px;
 
-            .card {
-                padding: 22px 14px;
-            }
+    margin-bottom: 14px;
 
-            h1 {
-                font-size: 27px;
-            }
+    color: var(--gold-light);
 
-            textarea {
-                font-size: 15px;
-            }
-        }
+    font-weight: 700;
+}
 
-    </style>
+audio {
+    width: 100%;
+
+    margin-bottom: 10px;
+}
+
+.audio-controls {
+    display: flex;
+
+    gap: 10px;
+}
+
+.audio-btn {
+    flex: 1;
+
+    padding: 10px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    background: rgba(216,181,106,.06);
+
+    color: var(--gold-light);
+
+    font-family: "Cairo";
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+.audio-btn:hover {
+    background: rgba(216,181,106,.13);
+}
+
+/* السجل */
+
+.history {
+    display: none;
+
+    margin-top: 28px;
+}
+
+.history.show {
+    display: block;
+}
+
+.history-header {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 12px;
+}
+
+.history-title {
+    color: var(--gold-light);
+
+    font-weight: 700;
+}
+
+.clear-history {
+    width: auto;
+
+    padding: 0;
+
+    margin: 0;
+
+    border: 0;
+
+    background: none;
+
+    color: var(--danger);
+
+    font-family: "Cairo";
+
+    font-size: 11px;
+
+    cursor: pointer;
+
+    box-shadow: none;
+}
+
+.history-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 12px;
+
+    margin-bottom: 8px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 14px;
+
+    background: rgba(0,0,0,.09);
+}
+
+.history-icon {
+    width: 36px;
+    height: 36px;
+
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 10px;
+
+    background: rgba(216,181,106,.09);
+
+    color: var(--gold-light);
+}
+
+.history-text {
+    flex: 1;
+
+    min-width: 0;
+}
+
+.history-text strong {
+    display: block;
+
+    overflow: hidden;
+
+    white-space: nowrap;
+
+    text-overflow: ellipsis;
+
+    color: var(--text);
+
+    font-size: 12px;
+}
+
+.history-text span {
+    color: var(--muted-dark);
+
+    font-size: 10px;
+}
+
+.history-play {
+    width: auto;
+
+    padding: 7px 10px;
+
+    margin: 0;
+
+    border-radius: 9px;
+
+    background: transparent;
+
+    color: var(--gold-light);
+
+    border: 1px solid var(--border);
+
+    box-shadow: none;
+
+    font-family: "Cairo";
+
+    font-size: 11px;
+
+    cursor: pointer;
+}
+
+/* الفوتر */
+
+.footer {
+    margin-top: 36px;
+
+    padding-top: 25px;
+
+    border-top: 1px solid var(--border);
+
+    text-align: center;
+}
+
+.footer-symbol {
+    color: var(--gold);
+
+    margin-bottom: 12px;
+
+    font-size: 18px;
+
+    letter-spacing: 7px;
+}
+
+.signature-label {
+    color: var(--muted-dark);
+
+    font-size: 11px;
+}
+
+.signature {
+    margin-top: 3px;
+
+    font-family:
+        "Noto Kufi Arabic",
+        "Reem Kufi",
+        sans-serif;
+
+    color: var(--gold-light);
+
+    font-size: 29px;
+
+    font-weight: 700;
+
+    text-shadow:
+        0 3px 20px rgba(216,181,106,.20);
+}
+
+.copyright {
+    margin-top: 7px;
+
+    color: var(--muted-dark);
+
+    font-size: 10px;
+}
+
+/* النافذة */
+
+.modal {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 1000;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(0,0,0,.72);
+
+    backdrop-filter: blur(8px);
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-content {
+    width: 100%;
+
+    max-width: 480px;
+
+    padding: 30px;
+
+    border-radius: 25px;
+
+    border: 1px solid var(--border);
+
+    background: var(--card);
+
+    box-shadow: var(--shadow);
+
+    text-align: center;
+
+    animation: modalIn .3s ease;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+
+    color: var(--gold-light);
+
+    font-family:
+        "Noto Kufi Arabic",
+        sans-serif;
+}
+
+.modal-content p {
+    color: var(--muted);
+
+    line-height: 2;
+
+    font-size: 14px;
+}
+
+.close-modal {
+    width: auto;
+
+    padding: 9px 25px;
+
+    margin-top: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--gold-light),
+            var(--gold)
+        );
+
+    color: #172019;
+
+    box-shadow: none;
+}
+
+/* Toast */
+
+.toast {
+    position: fixed;
+
+    bottom: 25px;
+
+    left: 50%;
+
+    z-index: 2000;
+
+    transform:
+        translateX(-50%)
+        translateY(100px);
+
+    padding: 12px 20px;
+
+    border-radius: 999px;
+
+    background: #132b22;
+
+    border: 1px solid var(--border);
+
+    color: var(--gold-light);
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.35);
+
+    font-size: 12px;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition: .35s;
+}
+
+.toast.show {
+    opacity: 1;
+
+    transform:
+        translateX(-50%)
+        translateY(0);
+}
+
+/* الحركات */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes modalIn {
+    from {
+        opacity: 0;
+        transform: scale(.94) translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* الجوال */
+
+@media(max-width:700px) {
+
+    body {
+        padding: 10px 8px 30px;
+    }
+
+    .card {
+        padding: 27px 16px;
+
+        border-radius: 24px;
+    }
+
+    .top-actions {
+        top: 13px;
+        left: 13px;
+    }
+
+    .icon-btn {
+        width: 34px;
+        height: 34px;
+
+        font-size: 13px;
+    }
+
+    h1 {
+        font-size: 31px;
+    }
+
+    .subtitle {
+        font-size: 13px;
+    }
+
+    textarea {
+        min-height: 220px;
+
+        font-size: 16px;
+    }
+
+    .presets {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .settings {
+        grid-template-columns: 1fr;
+    }
+
+    .signature {
+        font-size: 24px;
+    }
+}
+
+@media(max-width:420px) {
+
+    h1 {
+        font-size: 27px;
+    }
+
+    .audio-controls {
+        flex-direction: column;
+    }
+
+    .editor-bottom {
+        align-items: flex-end;
+    }
+
+    .editor-tools {
+        flex-wrap: wrap;
+    }
+}
+</style>
 </head>
-
 
 <body>
 
 <div class="container">
 
-    <main class="card">
+<main class="card">
 
-        <!-- ================= HEADER ================= -->
+<!-- الأزرار العلوية -->
 
-        <header class="header">
+<div class="top-actions">
 
-            <div class="ornament">
-                ✦ ───── ✦
-            </div>
+<button
+class="icon-btn"
+id="themeBtn"
+type="button"
+title="تغيير المظهر">
+☀️
+</button>
 
-            <h1>
-                وَلَعَلَّكُمْ تَشْكُرُونَ
-            </h1>
-
-            <div class="subtitle">
-                حوّل النص العربي إلى صوت بكل بساطة
-            </div>
-
-        </header>
-
-
-        <div class="gold-line"></div>
-
-
-        <!-- ================= CONTENT ================= -->
-
-        <section>
-
-            <div class="label">
-
-                <span>
-                    📝 النص
-                </span>
-
-                <span class="language">
-                    العربية
-                </span>
-
-            </div>
-
-
-            <textarea
-                id="text"
-                maxlength="2999"
-                placeholder="اكتب النص الذي تريد تحويله إلى صوت..."
-            >السلام عليكم ورحمة الله وبركاته. هذا اختبار لتحويل النص العربي إلى صوت.</textarea>
-
-
-            <div class="counter">
-
-                <span id="counter">0</span>
-                <span> / 2999 حرف</span>
-
-            </div>
-
-
-            <button
-                id="convert"
-                class="convert-button"
-                type="button"
-            >
-                🔊 تحويل النص إلى صوت
-            </button>
-
-
-            <div id="status"></div>
-
-
-            <div class="player-box">
-
-                <div class="player-title">
-                    🎧 مشغل الصوت
-                </div>
-
-                <audio
-                    id="player"
-                    controls
-                    preload="none"
-                ></audio>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================= FOOTER ================= -->
-
-        <footer class="footer">
-
-            <div class="signature-label">
-                تصميم وتطوير
-            </div>
-
-            <div class="signature">
-                حسام فودة
-            </div>
-
-            <div class="copyright">
-                © 2026 جميع الحقوق محفوظة
-            </div>
-
-        </footer>
-
-    </main>
+<button
+class="icon-btn"
+id="aboutBtn"
+type="button"
+title="حول المشروع">
+ⓘ
+</button>
 
 </div>
 
 
+<!-- الرأس -->
+
+<header class="header">
+
+<div class="badge">
+✦ تحويل النص العربي إلى صوت ✦
+</div>
+
+<div class="ornament">
+✦ ───── ✦
+</div>
+
+<h1>
+وَلَعَلَّكُمْ تَشْكُرُونَ
+</h1>
+
+<div class="subtitle">
+حوّل كلماتك العربية إلى صوت بكل أناقة وبساطة
+</div>
+
+<div class="divider"></div>
+
+</header>
+
+
+<section>
+
+<!-- النص -->
+
+<div class="label">
+
+<span>📝 النص</span>
+
+<span class="language">
+العربية
+</span>
+
+</div>
+
+
+<div class="editor">
+
+<textarea
+id="text"
+maxlength="3000"
+placeholder="اكتب النص الذي تريد تحويله إلى صوت..."
+>السلام عليكم ورحمة الله وبركاته. هذا اختبار لتحويل النص العربي إلى صوت.</textarea>
+
+
+<div class="editor-bottom">
+
+<div class="editor-tools">
+
+<button
+class="small-btn"
+id="sampleBtn"
+type="button">
+✨ نص تجريبي
+</button>
+
+<button
+class="small-btn"
+id="clearBtn"
+type="button">
+🗑 مسح
+</button>
+
+</div>
+
+
+<div class="counter">
+
+<span id="charCount">0</span>
+/
+3000
+·
+<span id="wordCount">0</span>
+كلمة
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- النصوص الجاهزة -->
+
+<div class="section-title">
+🕌 نصوص جاهزة للتجربة
+</div>
+
+<div class="presets">
+
+<button
+class="preset"
+type="button"
+data-text="السلام عليكم ورحمة الله وبركاته. أسأل الله أن يرزقكم السكينة والطمأنينة والخير في الدنيا والآخرة.">
+🌿 رسالة إيمانية
+</button>
+
+<button
+class="preset"
+type="button"
+data-text="الحمد لله رب العالمين، الرحمن الرحيم، مالك يوم الدين. إياك نعبد وإياك نستعين.">
+📖 الفاتحة
+</button>
+
+<button
+class="preset"
+type="button"
+data-text="سبحان الله والحمد لله ولا إله إلا الله والله أكبر.">
+🤲 ذكر
+</button>
+
+<button
+class="preset"
+type="button"
+data-text="لا تجعل صعوبة البداية تمنعك من الوصول إلى النهاية. ابدأ بخطوة صغيرة، واستمر، وستصل بإذن الله.">
+💡 حكمة
+</button>
+
+</div>
+
+
+<!-- الإعدادات -->
+
+<div class="section-title">
+⚙️ إعدادات الصوت
+</div>
+
+<div class="settings">
+
+<div class="setting">
+
+<label>
+<span>🎙️ الصوت</span>
+</label>
+
+<select id="voiceSelect">
+
+<option value="cCYjmrGZaI86GUJ7F2Nn">
+الصوت العربي الأساسي
+</option>
+
+</select>
+
+</div>
+
+
+<div class="setting">
+
+<label>
+
+<span>
+⚡ سرعة التشغيل
+</span>
+
+<strong id="speedValue">
+1.00x
+</strong>
+
+</label>
+
+<input
+type="range"
+id="speed"
+min="0.75"
+max="1.5"
+step="0.05"
+value="1">
+
+</div>
+
+</div>
+
+
+<!-- التحويل -->
+
+<button
+id="convert"
+type="button">
+🔊 إنشاء الصوت
+</button>
+
+
+<div
+class="status"
+id="status">
+</div>
+
+
+<!-- الصوت -->
+
+<div
+class="audio-card"
+id="audioCard">
+
+<div class="audio-title">
+🎧 الصوت الناتج
+</div>
+
+<audio
+id="player"
+controls>
+</audio>
+
+<div class="audio-controls">
+
+<button
+class="audio-btn"
+id="downloadBtn"
+type="button">
+⬇️ تحميل الصوت
+</button>
+
+<button
+class="audio-btn"
+id="stopBtn"
+type="button">
+⏹ إيقاف
+</button>
+
+</div>
+
+</div>
+
+
+<!-- السجل -->
+
+<div
+class="history"
+id="history">
+
+<div class="history-header">
+
+<div class="history-title">
+📚 آخر التحويلات
+</div>
+
+<button
+class="clear-history"
+id="clearHistory"
+type="button">
+مسح السجل
+</button>
+
+</div>
+
+<div id="historyList"></div>
+
+</div>
+
+</section>
+
+
+<!-- الفوتر -->
+
+<footer class="footer">
+
+<div class="footer-symbol">
+✦ ───── ✦
+</div>
+
+<div class="signature-label">
+تصميم وتطوير
+</div>
+
+<div class="signature">
+حسام فودة
+</div>
+
+<div class="copyright">
+© 2026 جميع الحقوق محفوظة
+</div>
+
+</footer>
+
+</main>
+
+</div>
+
+
+<!-- نافذة حول -->
+
+<div
+class="modal"
+id="aboutModal">
+
+<div class="modal-content">
+
+<div class="ornament">
+✦
+</div>
+
+<h2>
+وَلَعَلَّكُمْ تَشْكُرُونَ
+</h2>
+
+<p>
+أداة عربية بسيطة وأنيقة لتحويل النصوص
+إلى صوت، صُممت لتقديم تجربة سهلة
+وهادئة لإنشاء المحتوى الصوتي العربي.
+</p>
+
+<p>
+<strong style="color:var(--gold-light)">
+تصميم وتطوير حسام فودة
+</strong>
+</p>
+
+<button
+class="close-modal"
+id="closeModal"
+type="button">
+إغلاق
+</button>
+
+</div>
+
+</div>
+
+
+<!-- Toast -->
+
+<div
+class="toast"
+id="toast">
+</div>
+
+
 <script>
+"use strict";
 
-    /* ==========================================
-       العناصر
-    ========================================== */
+/* =====================================
+   العناصر
+===================================== */
 
-    const text = document.getElementById("text");
-    const counter = document.getElementById("counter");
-    const convert = document.getElementById("convert");
-    const status = document.getElementById("status");
-    const player = document.getElementById("player");
+const text = document.getElementById("text");
+const charCount = document.getElementById("charCount");
+const wordCount = document.getElementById("wordCount");
+
+const convert = document.getElementById("convert");
+const status = document.getElementById("status");
+
+const player = document.getElementById("player");
+const audioCard = document.getElementById("audioCard");
+
+const downloadBtn = document.getElementById("downloadBtn");
+const stopBtn = document.getElementById("stopBtn");
+
+const speed = document.getElementById("speed");
+const speedValue = document.getElementById("speedValue");
+
+const voiceSelect = document.getElementById("voiceSelect");
+
+const historyBox = document.getElementById("history");
+const historyList = document.getElementById("historyList");
+
+const toast = document.getElementById("toast");
+
+let currentAudioUrl = null;
+let toastTimer = null;
 
 
-    /* ==========================================
-       عداد الأحرف
-    ========================================== */
+/* =====================================
+   العداد
+===================================== */
 
-    function updateCounter() {
+function updateCounter() {
 
-        counter.textContent = text.value.length;
+    const value = text.value;
 
+    charCount.textContent = value.length;
+
+    const words = value
+        .trim()
+        .split(/\s+/)
+        .filter(Boolean);
+
+    wordCount.textContent =
+        value.trim()
+            ? words.length
+            : 0;
+}
+
+text.addEventListener(
+    "input",
+    updateCounter
+);
+
+updateCounter();
+
+
+/* =====================================
+   الحفظ التلقائي
+===================================== */
+
+try {
+
+    const savedText =
+        localStorage.getItem(
+            "arabicVoiceText"
+        );
+
+    if (savedText !== null) {
+
+        text.value = savedText;
+
+        updateCounter();
     }
 
+} catch (error) {
 
-    text.addEventListener("input", updateCounter);
-
-    updateCounter();
-
-
-    /* ==========================================
-       تحويل النص إلى صوت
-    ========================================== */
-
-    convert.addEventListener("click", async function () {
-
-        const value = text.value.trim();
+    console.warn(
+        "تعذر قراءة النص المحفوظ",
+        error
+    );
+}
 
 
-        /* التحقق من النص */
+text.addEventListener(
+    "input",
+    function () {
+
+        try {
+
+            localStorage.setItem(
+                "arabicVoiceText",
+                text.value
+            );
+
+        } catch (error) {
+
+            console.warn(
+                "تعذر حفظ النص",
+                error
+            );
+        }
+
+    }
+);
+
+
+/* =====================================
+   Toast
+===================================== */
+
+function showToast(message) {
+
+    toast.textContent = message;
+
+    toast.classList.add("show");
+
+    clearTimeout(toastTimer);
+
+    toastTimer =
+        setTimeout(
+            function () {
+
+                toast.classList.remove(
+                    "show"
+                );
+
+            },
+            3000
+        );
+}
+
+
+/* =====================================
+   نص تجريبي
+===================================== */
+
+document.getElementById(
+    "sampleBtn"
+).addEventListener(
+    "click",
+    function () {
+
+        text.value =
+            "السلام عليكم ورحمة الله وبركاته. أسأل الله أن يرزقكم السكينة والطمأنينة، وأن يجعل أيامكم مليئة بالخير والبركة.";
+
+        updateCounter();
+
+        try {
+
+            localStorage.setItem(
+                "arabicVoiceText",
+                text.value
+            );
+
+        } catch (error) {}
+
+        text.focus();
+
+        showToast(
+            "تم إدخال نص تجريبي ✨"
+        );
+    }
+);
+
+
+/* =====================================
+   مسح النص
+===================================== */
+
+document.getElementById(
+    "clearBtn"
+).addEventListener(
+    "click",
+    function () {
+
+        text.value = "";
+
+        updateCounter();
+
+        try {
+
+            localStorage.removeItem(
+                "arabicVoiceText"
+            );
+
+        } catch (error) {}
+
+        text.focus();
+
+        showToast(
+            "تم مسح النص"
+        );
+    }
+);
+
+
+/* =====================================
+   النصوص الجاهزة
+===================================== */
+
+document.querySelectorAll(
+    ".preset"
+).forEach(
+    function (button) {
+
+        button.addEventListener(
+            "click",
+            function () {
+
+                text.value =
+                    button.dataset.text;
+
+                updateCounter();
+
+                try {
+
+                    localStorage.setItem(
+                        "arabicVoiceText",
+                        text.value
+                    );
+
+                } catch (error) {}
+
+                text.focus();
+
+                showToast(
+                    "تم اختيار النص ✨"
+                );
+            }
+        );
+    }
+);
+
+
+/* =====================================
+   سرعة التشغيل
+===================================== */
+
+speed.addEventListener(
+    "input",
+    function () {
+
+        const value =
+            Number(speed.value);
+
+        speedValue.textContent =
+            value.toFixed(2) + "x";
+
+        player.playbackRate = value;
+    }
+);
+
+
+/* =====================================
+   التحقق من Puter
+===================================== */
+
+function puterReady() {
+
+    return (
+        typeof window.puter !== "undefined" &&
+        window.puter.ai &&
+        typeof window.puter.ai.txt2speech === "function"
+    );
+}
+
+
+/* =====================================
+   إنشاء الصوت
+===================================== */
+
+convert.addEventListener(
+    "click",
+    async function () {
+
+        const value =
+            text.value.trim();
+
 
         if (!value) {
 
             status.textContent =
                 "⚠️ اكتب نصًا أولًا.";
+
+            showToast(
+                "اكتب نصًا أولًا"
+            );
 
             text.focus();
 
@@ -820,23 +1816,37 @@
         }
 
 
-        if (value.length > 2999) {
+        if (value.length > 3000) {
 
             status.textContent =
-                "⚠️ النص طويل جدًا. جرّب نصًا أقصر.";
+                "⚠️ النص أطول من 3000 حرف.";
+
+            showToast(
+                "النص طويل جدًا"
+            );
 
             return;
         }
 
 
-        /* حالة التحميل */
+        if (!puterReady()) {
+
+            status.textContent =
+                "⚠️ خدمة تحويل الصوت لم تُحمّل بعد. حدّث الصفحة وحاول مرة أخرى.";
+
+            showToast(
+                "خدمة الصوت غير جاهزة"
+            );
+
+            return;
+        }
+
 
         convert.disabled = true;
 
-        convert.classList.add("loading");
-
-        convert.textContent =
+        convert.innerHTML =
             "⏳ جارٍ إنشاء الصوت...";
+
 
         status.textContent =
             "جاري تحويل النص إلى صوت، يرجى الانتظار...";
@@ -844,108 +1854,729 @@
 
         try {
 
-            /* التأكد من تحميل Puter */
+            const selectedVoice =
+                voiceSelect.value;
 
-            if (
-                typeof puter === "undefined" ||
-                !puter.ai ||
-                !puter.ai.txt2speech
-            ) {
-
-                throw new Error(
-                    "تعذر تحميل خدمة تحويل النص إلى صوت. أعد تحميل الصفحة."
-                );
-
-            }
-
-
-            /* إنشاء الصوت */
 
             const audio =
-                await puter.ai.txt2speech(
+                await window.puter.ai.txt2speech(
                     value,
                     {
-                        provider: "elevenlabs",
+                        provider:
+                            "elevenlabs",
 
-                        model: "eleven_multilingual_v2",
+                        model:
+                            "eleven_multilingual_v2",
 
-                        voice: "cCYjmrGZaI86GUJ7F2Nn"
+                        voice:
+                            selectedVoice
                     }
                 );
 
 
-            /* وضع الصوت في المشغل */
-
-            if (!audio || !audio.src) {
+            if (
+                !audio ||
+                !audio.src
+            ) {
 
                 throw new Error(
                     "لم يتم الحصول على ملف صوتي."
                 );
-
             }
 
 
-            player.src = audio.src;
+            currentAudioUrl =
+                audio.src;
 
-            player.load();
+
+            player.src =
+                currentAudioUrl;
+
+
+            player.playbackRate =
+                Number(speed.value);
+
+
+            audioCard.classList.add(
+                "show"
+            );
 
 
             status.textContent =
                 "✅ تم إنشاء الصوت بنجاح.";
 
 
-            /* تشغيل تلقائي إن سمح المتصفح */
-
-            try {
-
-                await player.play();
-
-            } catch (e) {
-
-                /* بعض المتصفحات تمنع التشغيل التلقائي */
-
-                console.log(
-                    "التشغيل التلقائي غير مسموح."
-                );
-
-            }
-
-        }
+            showToast(
+                "تم إنشاء الصوت بنجاح 🎧"
+            );
 
 
-        catch (error) {
+            addHistory(
+                value,
+                currentAudioUrl
+            );
+
+
+            player.play().catch(
+                function () {}
+            );
+
+
+            console.log(
+                "Audio:",
+                audio
+            );
+
+
+        } catch (error) {
 
             console.error(
-                "Audio Error:",
+                "ERROR:",
                 error
             );
 
 
+            const message =
+                error &&
+                error.message
+                    ? error.message
+                    : String(error);
+
+
             status.textContent =
                 "❌ حدث خطأ: " +
-                (
-                    error.message ||
-                    "تعذر إنشاء الصوت."
-                );
-
-        }
+                message;
 
 
-        finally {
+            showToast(
+                "تعذر إنشاء الصوت"
+            );
+
+
+        } finally {
 
             convert.disabled = false;
 
-            convert.classList.remove("loading");
-
-            convert.textContent =
-                "🔊 تحويل النص إلى صوت";
-
+            convert.innerHTML =
+                "🔊 إنشاء الصوت";
         }
 
+    }
+);
+
+
+/* =====================================
+   تحميل الصوت
+===================================== */
+
+downloadBtn.addEventListener(
+    "click",
+    async function () {
+
+        if (!currentAudioUrl) {
+
+            showToast(
+                "لا يوجد صوت للتحميل"
+            );
+
+            return;
+        }
+
+
+        try {
+
+            const response =
+                await fetch(
+                    currentAudioUrl
+                );
+
+
+            if (!response.ok) {
+
+                throw new Error(
+                    "فشل تحميل الملف"
+                );
+            }
+
+
+            const blob =
+                await response.blob();
+
+
+            const url =
+                URL.createObjectURL(
+                    blob
+                );
+
+
+            const link =
+                document.createElement(
+                    "a"
+                );
+
+
+            link.href = url;
+
+            link.download =
+                "walakum-tashkurun.mp3";
+
+
+            document.body.appendChild(
+                link
+            );
+
+            link.click();
+
+            link.remove();
+
+
+            setTimeout(
+                function () {
+
+                    URL.revokeObjectURL(
+                        url
+                    );
+
+                },
+                1000
+            );
+
+
+            showToast(
+                "بدأ تحميل الصوت ⬇️"
+            );
+
+
+        } catch (error) {
+
+            /*
+             * إذا منع المتصفح التحميل المباشر،
+             * نفتح رابط الصوت في نافذة جديدة.
+             */
+
+            const link =
+                document.createElement(
+                    "a"
+                );
+
+
+            link.href =
+                currentAudioUrl;
+
+            link.target =
+                "_blank";
+
+            link.rel =
+                "noopener";
+
+
+            document.body.appendChild(
+                link
+            );
+
+            link.click();
+
+            link.remove();
+
+
+            showToast(
+                "تم فتح الصوت"
+            );
+        }
+
+    }
+);
+
+
+/* =====================================
+   إيقاف الصوت
+===================================== */
+
+stopBtn.addEventListener(
+    "click",
+    function () {
+
+        player.pause();
+
+        player.currentTime = 0;
+    }
+);
+
+
+/* =====================================
+   السجل
+===================================== */
+
+function getHistory() {
+
+    try {
+
+        const data =
+            localStorage.getItem(
+                "arabicVoiceHistory"
+            );
+
+        if (!data) {
+            return [];
+        }
+
+        const parsed =
+            JSON.parse(data);
+
+        return Array.isArray(parsed)
+            ? parsed
+            : [];
+
+    } catch (error) {
+
+        console.warn(
+            "تعذر قراءة السجل",
+            error
+        );
+
+        return [];
+    }
+}
+
+
+function saveHistory(items) {
+
+    try {
+
+        localStorage.setItem(
+            "arabicVoiceHistory",
+            JSON.stringify(items)
+        );
+
+    } catch (error) {
+
+        console.warn(
+            "تعذر حفظ السجل",
+            error
+        );
+    }
+}
+
+
+function addHistory(
+    textValue,
+    audioUrl
+) {
+
+    const items =
+        getHistory();
+
+
+    items.unshift({
+
+        id:
+            Date.now(),
+
+        text:
+            textValue,
+
+        audio:
+            audioUrl,
+
+        date:
+            new Date()
+                .toLocaleString(
+                    "ar-EG"
+                )
     });
+
+
+    saveHistory(
+        items.slice(0,8)
+    );
+
+
+    renderHistory();
+}
+
+
+function renderHistory() {
+
+    const items =
+        getHistory();
+
+
+    if (!items.length) {
+
+        historyBox.classList.remove(
+            "show"
+        );
+
+        historyList.innerHTML = "";
+
+        return;
+    }
+
+
+    historyBox.classList.add(
+        "show"
+    );
+
+
+    historyList.innerHTML = "";
+
+
+    items.forEach(
+        function (item) {
+
+            const row =
+                document.createElement(
+                    "div"
+                );
+
+            row.className =
+                "history-item";
+
+
+            const icon =
+                document.createElement(
+                    "div"
+                );
+
+            icon.className =
+                "history-icon";
+
+            icon.textContent =
+                "🎧";
+
+
+            const info =
+                document.createElement(
+                    "div"
+                );
+
+            info.className =
+                "history-text";
+
+
+            const title =
+                document.createElement(
+                    "strong"
+                );
+
+            title.textContent =
+                item.text || "تحويل صوتي";
+
+
+            const date =
+                document.createElement(
+                    "span"
+                );
+
+            date.textContent =
+                item.date || "";
+
+
+            info.appendChild(
+                title
+            );
+
+            info.appendChild(
+                date
+            );
+
+
+            const play =
+                document.createElement(
+                    "button"
+                );
+
+            play.type = "button";
+
+            play.className =
+                "history-play";
+
+            play.textContent =
+                "▶ تشغيل";
+
+
+            play.addEventListener(
+                "click",
+                function () {
+
+                    if (!item.audio) {
+
+                        showToast(
+                            "الملف الصوتي غير متوفر"
+                        );
+
+                        return;
+                    }
+
+
+                    player.src =
+                        item.audio;
+
+
+                    currentAudioUrl =
+                        item.audio;
+
+
+                    player.playbackRate =
+                        Number(speed.value);
+
+
+                    audioCard.classList.add(
+                        "show"
+                    );
+
+
+                    player.play().catch(
+                        function () {}
+                    );
+
+
+                    audioCard.scrollIntoView({
+                        behavior:
+                            "smooth",
+                        block:
+                            "center"
+                    });
+
+                }
+            );
+
+
+            row.appendChild(
+                icon
+            );
+
+            row.appendChild(
+                info
+            );
+
+            row.appendChild(
+                play
+            );
+
+
+            historyList.appendChild(
+                row
+            );
+
+        }
+    );
+}
+
+
+document.getElementById(
+    "clearHistory"
+).addEventListener(
+    "click",
+    function () {
+
+        try {
+
+            localStorage.removeItem(
+                "arabicVoiceHistory"
+            );
+
+        } catch (error) {}
+
+        renderHistory();
+
+        showToast(
+            "تم مسح سجل التحويلات"
+        );
+    }
+);
+
+
+renderHistory();
+
+
+/* =====================================
+   الوضع الداكن والفاتح
+===================================== */
+
+const themeBtn =
+    document.getElementById(
+        "themeBtn"
+    );
+
+
+try {
+
+    const savedTheme =
+        localStorage.getItem(
+            "arabicVoiceTheme"
+        );
+
+
+    if (
+        savedTheme === "light"
+    ) {
+
+        document.body.classList.add(
+            "light"
+        );
+
+        themeBtn.textContent =
+            "🌙";
+    }
+
+} catch (error) {}
+
+
+themeBtn.addEventListener(
+    "click",
+    function () {
+
+        document.body.classList.toggle(
+            "light"
+        );
+
+
+        const isLight =
+            document.body.classList.contains(
+                "light"
+            );
+
+
+        try {
+
+            localStorage.setItem(
+                "arabicVoiceTheme",
+                isLight
+                    ? "light"
+                    : "dark"
+            );
+
+        } catch (error) {}
+
+
+        themeBtn.textContent =
+            isLight
+                ? "🌙"
+                : "☀️";
+    }
+);
+
+
+/* =====================================
+   نافذة حول المشروع
+===================================== */
+
+const modal =
+    document.getElementById(
+        "aboutModal"
+    );
+
+
+document.getElementById(
+    "aboutBtn"
+).addEventListener(
+    "click",
+    function () {
+
+        modal.classList.add(
+            "show"
+        );
+    }
+);
+
+
+document.getElementById(
+    "closeModal"
+).addEventListener(
+    "click",
+    function () {
+
+        modal.classList.remove(
+            "show"
+        );
+    }
+);
+
+
+modal.addEventListener(
+    "click",
+    function (event) {
+
+        if (
+            event.target === modal
+        ) {
+
+            modal.classList.remove(
+                "show"
+            );
+        }
+    }
+);
+
+
+/* =====================================
+   اختصارات لوحة المفاتيح
+===================================== */
+
+document.addEventListener(
+    "keydown",
+    function (event) {
+
+        /* Ctrl + Enter */
+
+        if (
+            (event.ctrlKey ||
+             event.metaKey) &&
+            event.key === "Enter"
+        ) {
+
+            event.preventDefault();
+
+            convert.click();
+        }
+
+
+        /* Escape */
+
+        if (
+            event.key === "Escape"
+        ) {
+
+            modal.classList.remove(
+                "show"
+            );
+        }
+
+    }
+);
+
+
+/* =====================================
+   جاهزية الصفحة
+===================================== */
+
+window.addEventListener(
+    "load",
+    function () {
+
+        updateCounter();
+
+        player.playbackRate =
+            Number(speed.value);
+
+        /*
+         * لا نعرض أي شاشة تحميل تغطي الصفحة.
+         * الواجهة تظهر مباشرة حتى لو كانت
+         * خدمة Puter غير متاحة.
+         */
+
+        if (!puterReady()) {
+
+            console.warn(
+                "Puter AI غير متاح حاليًا."
+            );
+        }
+
+    }
+);
 
 </script>
 
 </body>
-
-</html>
+    </html>
