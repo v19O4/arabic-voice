@@ -85,8 +85,6 @@ body {
         color .4s ease;
 }
 
-/* خلفية زخرفية */
-
 body::before {
     content: "";
     position: fixed;
@@ -127,15 +125,11 @@ body::after {
     z-index: -1;
 }
 
-/* الحاوية */
-
 .container {
     width: 100%;
     max-width: 900px;
     margin: auto;
 }
-
-/* البطاقة الرئيسية */
 
 .card {
     position: relative;
@@ -211,8 +205,6 @@ body.light .card {
     pointer-events: none;
 }
 
-/* أزرار أعلى البطاقة */
-
 .top-actions {
     position: absolute;
 
@@ -259,8 +251,6 @@ body.light .card {
 
     border-color: var(--gold);
 }
-
-/* العنوان */
 
 .header {
     position: relative;
@@ -344,8 +334,6 @@ h1 {
         );
 }
 
-/* العناوين */
-
 .label {
     display: flex;
 
@@ -366,8 +354,6 @@ h1 {
 
     font-weight: 500;
 }
-
-/* محرر النص */
 
 .editor {
     position: relative;
@@ -476,8 +462,6 @@ textarea:focus {
     background: rgba(216,181,106,.13);
 }
 
-/* النصوص الجاهزة */
-
 .section-title {
     margin-top: 27px;
     margin-bottom: 12px;
@@ -527,8 +511,6 @@ textarea:focus {
 
     transform: translateY(-1px);
 }
-
-/* الإعدادات */
 
 .settings {
     display: grid;
@@ -583,6 +565,18 @@ select {
     font-family: "Cairo";
 
     outline: none;
+
+    cursor: pointer;
+}
+
+select option {
+    background: #112a21;
+    color: #faf7ed;
+}
+
+body.light select option {
+    background: #ffffff;
+    color: #18251f;
 }
 
 input[type="range"] {
@@ -592,8 +586,6 @@ input[type="range"] {
 
     cursor: pointer;
 }
-
-/* زر التحويل */
 
 #convert {
     width: 100%;
@@ -648,8 +640,6 @@ input[type="range"] {
     transform: none;
 }
 
-/* الحالة */
-
 .status {
     min-height: 25px;
 
@@ -661,8 +651,6 @@ input[type="range"] {
 
     font-size: 13px;
 }
-
-/* مشغل الصوت */
 
 .audio-card {
     display: none;
@@ -740,8 +728,6 @@ audio {
 .audio-btn:hover {
     background: rgba(216,181,106,.13);
 }
-
-/* السجل */
 
 .history {
     display: none;
@@ -874,8 +860,6 @@ audio {
     cursor: pointer;
 }
 
-/* الفوتر */
-
 .footer {
     margin-top: 36px;
 
@@ -927,8 +911,6 @@ audio {
 
     font-size: 10px;
 }
-
-/* النافذة */
 
 .modal {
     position: fixed;
@@ -1010,8 +992,6 @@ audio {
     box-shadow: none;
 }
 
-/* Toast */
-
 .toast {
     position: fixed;
 
@@ -1055,8 +1035,6 @@ audio {
         translateY(0);
 }
 
-/* الحركات */
-
 @keyframes fadeUp {
     from {
         opacity: 0;
@@ -1080,8 +1058,6 @@ audio {
         transform: none;
     }
 }
-
-/* الجوال */
 
 @media(max-width:700px) {
 
@@ -1161,8 +1137,6 @@ audio {
 
 <main class="card">
 
-<!-- الأزرار العلوية -->
-
 <div class="top-actions">
 
 <button
@@ -1182,9 +1156,6 @@ title="حول المشروع">
 </button>
 
 </div>
-
-
-<!-- الرأس -->
 
 <header class="header">
 
@@ -1208,10 +1179,7 @@ title="حول المشروع">
 
 </header>
 
-
 <section>
-
-<!-- النص -->
 
 <div class="label">
 
@@ -1223,7 +1191,6 @@ title="حول المشروع">
 
 </div>
 
-
 <div class="editor">
 
 <textarea
@@ -1231,7 +1198,6 @@ id="text"
 maxlength="3000"
 placeholder="اكتب النص الذي تريد تحويله إلى صوت..."
 >السلام عليكم ورحمة الله وبركاته. هذا اختبار لتحويل النص العربي إلى صوت.</textarea>
-
 
 <div class="editor-bottom">
 
@@ -1253,7 +1219,6 @@ type="button">
 
 </div>
 
-
 <div class="counter">
 
 <span id="charCount">0</span>
@@ -1268,9 +1233,6 @@ type="button">
 </div>
 
 </div>
-
-
-<!-- النصوص الجاهزة -->
 
 <div class="section-title">
 🕌 نصوص جاهزة للتجربة
@@ -1308,14 +1270,15 @@ data-text="لا تجعل صعوبة البداية تمنعك من الوصول 
 
 </div>
 
-
-<!-- الإعدادات -->
-
 <div class="section-title">
 ⚙️ إعدادات الصوت
 </div>
 
 <div class="settings">
+
+<!-- ===============================
+     الأصوات المضافة
+================================ -->
 
 <div class="setting">
 
@@ -1325,14 +1288,59 @@ data-text="لا تجعل صعوبة البداية تمنعك من الوصول 
 
 <select id="voiceSelect">
 
+<option value="RILOU7YmBhvwJGDGjNmP">
+الخنساء
+</option>
+
+<option value="BIvP0GN1cAtSRTxNHnWS">
+ليلى
+</option>
+
 <option value="cCYjmrGZaI86GUJ7F2Nn">
-الصوت العربي الأساسي
+امرؤ القيس
+</option>
+
+<option value="yhf80q1381zd2JJQ4tM7">
+طَرَفة
+</option>
+
+<option value="SLa3GDQHUGaRpH5GNvFL">
+زُهير
+</option>
+
+<option value="8Ln42OXYupYsag45MAUy">
+لَبيد
+</option>
+
+<option value="k0gtD0Bbpi6hL40jfHfm">
+عمرو
+</option>
+
+<option value="2CECaLAGTS5NRGxgbcxr">
+الحارث
+</option>
+
+<option value="fIGaHjfrR8KmMy0vGEVJ">
+علقمة
+</option>
+
+<option value="J2FGlQG8Gd7x8uEDt2H8">
+النابغة
+</option>
+
+<option value="Q0Et7LOU7VpeoeCRQAVS">
+عدي
+</option>
+
+<option value="jBlmi27XRORxjPquUeCh">
+عنترة
 </option>
 
 </select>
 
 </div>
 
+<!-- السرعة -->
 
 <div class="setting">
 
@@ -1360,23 +1368,16 @@ value="1">
 
 </div>
 
-
-<!-- التحويل -->
-
 <button
 id="convert"
 type="button">
 🔊 إنشاء الصوت
 </button>
 
-
 <div
 class="status"
 id="status">
 </div>
-
-
-<!-- الصوت -->
 
 <div
 class="audio-card"
@@ -1411,9 +1412,6 @@ type="button">
 
 </div>
 
-
-<!-- السجل -->
-
 <div
 class="history"
 id="history">
@@ -1439,9 +1437,6 @@ type="button">
 
 </section>
 
-
-<!-- الفوتر -->
-
 <footer class="footer">
 
 <div class="footer-symbol">
@@ -1465,9 +1460,6 @@ type="button">
 </main>
 
 </div>
-
-
-<!-- نافذة حول -->
 
 <div
 class="modal"
@@ -1506,14 +1498,10 @@ type="button">
 
 </div>
 
-
-<!-- Toast -->
-
 <div
 class="toast"
 id="toast">
 </div>
-
 
 <script>
 "use strict";
@@ -1854,9 +1842,19 @@ convert.addEventListener(
 
         try {
 
+            /*
+             * هنا يتم أخذ الـ ID الخاص
+             * بالصوت الذي اختاره المستخدم.
+             */
+
             const selectedVoice =
                 voiceSelect.value;
 
+
+            /*
+             * إرسال الصوت المختار إلى Puter
+             * ثم إلى ElevenLabs.
+             */
 
             const audio =
                 await window.puter.ai.txt2speech(
@@ -1919,6 +1917,12 @@ convert.addEventListener(
 
             player.play().catch(
                 function () {}
+            );
+
+
+            console.log(
+                "الصوت المستخدم:",
+                selectedVoice
             );
 
 
@@ -2048,11 +2052,6 @@ downloadBtn.addEventListener(
 
 
         } catch (error) {
-
-            /*
-             * إذا منع المتصفح التحميل المباشر،
-             * نفتح رابط الصوت في نافذة جديدة.
-             */
 
             const link =
                 document.createElement(
@@ -2518,8 +2517,6 @@ document.addEventListener(
     "keydown",
     function (event) {
 
-        /* Ctrl + Enter */
-
         if (
             (event.ctrlKey ||
              event.metaKey) &&
@@ -2531,8 +2528,6 @@ document.addEventListener(
             convert.click();
         }
 
-
-        /* Escape */
 
         if (
             event.key === "Escape"
@@ -2559,12 +2554,6 @@ window.addEventListener(
 
         player.playbackRate =
             Number(speed.value);
-
-        /*
-         * لا نعرض أي شاشة تحميل تغطي الصفحة.
-         * الواجهة تظهر مباشرة حتى لو كانت
-         * خدمة Puter غير متاحة.
-         */
 
         if (!puterReady()) {
 
