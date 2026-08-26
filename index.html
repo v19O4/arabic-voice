@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>صوتي العربي</title>
+    <title>وَلَعَلَّكُمْ تَشْكُرُونَ</title>
 
     <script src="https://js.puter.com/v2/"></script>
 
@@ -59,7 +59,7 @@
 
 <div class="box">
 
-    <h1>🎙️ صوتي العربي</h1>
+    <h1>🎙️ وَلَعَلَّكُمْ تَشْكُرُونَ</h1>
 
     <textarea id="text">السلام عليكم ورحمة الله وبركاته. هذا اختبار لتحويل النص العربي إلى صوت.</textarea>
 
@@ -98,7 +98,7 @@ document.getElementById("convert").onclick = async function () {
         const audio = await puter.ai.txt2speech(text, {
             provider: "elevenlabs",
             model: "eleven_multilingual_v2",
-            voice: "21m00Tcm4TlvDq8ikWAM"
+            voice: "cCYjmrGZaI86GUJ7F2Nn"
         });
 
         player.src = audio.src;
