@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,118 +9,59 @@
     <script src="https://js.puter.com/v2/"></script>
 
     <style>
-        * {
-            box-sizing: border-box;
-        }
-
         body {
-            margin: 0;
+            font-family: Arial;
+            background: #f5f1e8;
             padding: 20px;
-            background: #f4f1ea;
-            font-family: Arial, sans-serif;
         }
 
-        .container {
+        .box {
             max-width: 700px;
             margin: auto;
             background: white;
-            padding: 25px;
-            border-radius: 20px;
-            box-shadow: 0 5px 20px #0002;
-        }
-
-        h1 {
-            text-align: center;
-            color: #5b3a20;
+            padding: 20px;
+            border-radius: 15px;
         }
 
         textarea {
             width: 100%;
-            height: 250px;
+            height: 220px;
+            box-sizing: border-box;
             padding: 15px;
             font-size: 18px;
             line-height: 1.8;
-            border: 1px solid #ccc;
-            border-radius: 12px;
-            resize: vertical;
         }
 
-        label {
-            display: block;
-            margin-top: 20px;
-            margin-bottom: 8px;
-            font-weight: bold;
-        }
-
-        select {
+        button {
             width: 100%;
-            padding: 13px;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            font-size: 16px;
-        }
-
-        button,
-        .download {
-            display: block;
-            width: 100%;
-            margin-top: 15px;
             padding: 15px;
-            border: 0;
-            border-radius: 12px;
-            background: #5b3a20;
+            margin-top: 15px;
+            background: #654321;
             color: white;
+            border: 0;
+            border-radius: 10px;
             font-size: 18px;
-            text-align: center;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        button:disabled {
-            background: #999;
         }
 
         #status {
-            text-align: center;
             margin-top: 15px;
-            line-height: 1.6;
+            text-align: center;
         }
 
         audio {
             width: 100%;
             margin-top: 20px;
         }
-
-        #download {
-            display: none;
-            background: #287a3e;
-        }
     </style>
 </head>
 
 <body>
 
-<div class="container">
+<div class="box">
 
     <h1>🎙️ صوتي العربي</h1>
 
-    <p>حوّل النص إلى صوت بسهولة.</p>
-
-    <textarea id="text">السلام عليكم ورحمة الله وبركاته. هذا اختبار لموقع صوتي العربي.</textarea>
-
-    <label>مزود الصوت:</label>
-
-    <select id="provider">
-
-        <option value="default">
-            الصوت الافتراضي
-        </option>
-
-        <option value="elevenlabs">
-            ElevenLabs
-        </option>
-
-    </select>
+    <textarea id="text">السلام عليكم ورحمة الله وبركاته. هذا اختبار لتحويل النص العربي إلى صوت.</textarea>
 
     <button id="convert">
         🔊 تحويل إلى صوت
@@ -131,28 +71,54 @@
 
     <audio id="player" controls></audio>
 
-    <a id="download"
-       class="download"
-       download="arabic-voice.mp3">
-       ⬇️ تحميل الصوت
-    </a>
-
 </div>
-
 
 <script>
 
-const textBox = document.getElementById("text");
-const provider = document.getElementById("provider");
-const button = document.getElementById("convert");
-const status = document.getElementById("status");
-const player = document.getElementById("player");
-const download = document.getElementById("download");
+document.getElementById("convert").onclick = async function () {
 
-
-button.onclick = async function () {
-
-    const text = textBox.value.trim();
+    const text = document.getElementById("text").value.trim();
+    const status = document.getElementById("status");
+    const player = document.getElementById("player");
 
     if (!text) {
-        status.textContent = "⚠️
+        status.textContent = "اكتب نصًا أولًا";
+        return;
+    }
+
+    if (text.length >= 3000) {
+        status.textContent = "النص طويل جدًا. جرّب نصًا أقصر.";
+        return;
+    }
+
+    status.textContent = "⏳ جارٍ إنشاء الصوت...";
+
+    try {
+
+        const audio = await puter.ai.txt2speech(text, {
+            provider: "elevenlabs",
+            model: "eleven_multilingual_v2",
+            voice: "21m00Tcm4TlvDq8ikWAM"
+        });
+
+        player.src = audio.src;
+
+        status.textContent = "✅ تم إنشاء الصوت. اضغط تشغيل.";
+
+        console.log("Audio:", audio);
+
+    } catch (error) {
+
+        console.error("ERROR:", error);
+
+        status.textContent =
+            "❌ الخطأ: " +
+            (error.message || String(error));
+
+    }
+};
+
+</script>
+
+</body>
+</html>
