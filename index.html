@@ -5,92 +5,154 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>اختبار الأصوات</title>
+    <title>صوتي العربي</title>
 
     <script src="https://js.puter.com/v2/"></script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #f4f1ea;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px #0002;
+        }
+
+        h1 {
+            text-align: center;
+            color: #5b3a20;
+        }
+
+        textarea {
+            width: 100%;
+            height: 250px;
+            padding: 15px;
+            font-size: 18px;
+            line-height: 1.8;
+            border: 1px solid #ccc;
+            border-radius: 12px;
+            resize: vertical;
+        }
+
+        label {
+            display: block;
+            margin-top: 20px;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        select {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            font-size: 16px;
+        }
+
+        button,
+        .download {
+            display: block;
+            width: 100%;
+            margin-top: 15px;
+            padding: 15px;
+            border: 0;
+            border-radius: 12px;
+            background: #5b3a20;
+            color: white;
+            font-size: 18px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        button:disabled {
+            background: #999;
+        }
+
+        #status {
+            text-align: center;
+            margin-top: 15px;
+            line-height: 1.6;
+        }
+
+        audio {
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        #download {
+            display: none;
+            background: #287a3e;
+        }
+    </style>
 </head>
 
 <body>
 
-<h2>🎙️ أصوات ElevenLabs</h2>
+<div class="container">
 
-<button id="load">
-    تحميل الأصوات
-</button>
+    <h1>🎙️ صوتي العربي</h1>
 
-<select id="voices">
-    <option>اضغط تحميل الأصوات</option>
-</select>
+    <p>حوّل النص إلى صوت بسهولة.</p>
 
-<p id="status"></p>
+    <textarea id="text">السلام عليكم ورحمة الله وبركاته. هذا اختبار لموقع صوتي العربي.</textarea>
+
+    <label>مزود الصوت:</label>
+
+    <select id="provider">
+
+        <option value="default">
+            الصوت الافتراضي
+        </option>
+
+        <option value="elevenlabs">
+            ElevenLabs
+        </option>
+
+    </select>
+
+    <button id="convert">
+        🔊 تحويل إلى صوت
+    </button>
+
+    <div id="status"></div>
+
+    <audio id="player" controls></audio>
+
+    <a id="download"
+       class="download"
+       download="arabic-voice.mp3">
+       ⬇️ تحميل الصوت
+    </a>
+
+</div>
+
 
 <script>
 
-const button = document.getElementById("load");
-const select = document.getElementById("voices");
+const textBox = document.getElementById("text");
+const provider = document.getElementById("provider");
+const button = document.getElementById("convert");
 const status = document.getElementById("status");
+const player = document.getElementById("player");
+const download = document.getElementById("download");
+
 
 button.onclick = async function () {
 
-    button.disabled = true;
+    const text = textBox.value.trim();
 
-    status.textContent = "⏳ جاري تحميل الأصوات...";
-
-    try {
-
-        const voices =
-            await puter.ai.txt2speech.listVoices({
-                provider: "elevenlabs"
-            });
-
-        select.innerHTML = "";
-
-        if (!voices || voices.length === 0) {
-
-            status.textContent = "❌ لم يتم العثور على أصوات.";
-
-            return;
-        }
-
-        voices.forEach(function (voice) {
-
-            const option =
-                document.createElement("option");
-
-            option.value = voice.id;
-
-            option.textContent =
-                voice.name +
-                (voice.language
-                    ? " - " + voice.language.code
-                    : "");
-
-            select.appendChild(option);
-
-        });
-
-        status.textContent =
-            "✅ تم تحميل " + voices.length + " صوت.";
-
-        console.log(voices);
-
-    } catch (error) {
-
-        console.error(error);
-
-        status.textContent =
-            "❌ حدث خطأ: " +
-            (error.message || error);
-
-    } finally {
-
-        button.disabled = false;
-
-    }
-
-};
-
-</script>
-
-</body>
-</html>
+    if (!text) {
+        status.textContent = "⚠️
